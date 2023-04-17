@@ -6,7 +6,8 @@ import sensor
 class BuildingManager:
 
     def __init__(self):
-        self.dataset = pd.DataFrame()
+        self.buildings = pd.DataFrame()
+        self.sensors = pd.DataFrame()
 
     def add_building(self, building: BaseBuilding):
         pass  # add dataset
