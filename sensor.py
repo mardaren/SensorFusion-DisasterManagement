@@ -6,6 +6,7 @@ class Sensor:
     def __init__(self,
                  sid: int = 0,
                  bid: int = 0,
+                 is_smart: bool = False,
                  speed: float = 0.0,
                  price: float = 0.0,
                  success: float = 0.0):
@@ -13,6 +14,7 @@ class Sensor:
         self.bid = bid
         self.category = "Sensor"
         self.type = self.__class__.__name__
+        self.is_smart = is_smart
         self.speed = speed
         self.price = price
         self.success = success
