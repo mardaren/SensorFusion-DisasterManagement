@@ -1,8 +1,8 @@
-from base_building import BaseBuilding
+from building import BaseBuilding
 
 
 class Mall(BaseBuilding):
 
     def __init__(self):
-        super(self, BaseBuilding).__init__()
+        super().__init__()
 
