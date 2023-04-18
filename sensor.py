@@ -15,9 +15,12 @@ class Sensor:
         self.category = "Sensor"
         self.type = self.__class__.__name__
         self.is_smart = is_smart
+        self.brand = None  # will be added
+        self.model = None
+
         self.speed = speed
         self.price = price
-        self.success = success
+        self.success = success  # based on type
 
     def print_type(self):
         print(self.type)

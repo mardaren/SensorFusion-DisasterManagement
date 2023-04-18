@@ -1,23 +1,29 @@
 import sensor
 import building
 import pandas as pd
+from sensor_manager import SensorManager
+from query_types import SensorQuery
 
 def main():
     s0 = sensor.Airplane(sid=0)
     s1 = sensor.CarbonMonoxideDetector(sid=1)
 
-    b0 = building.School()
-    b0.sensor_list = [s0.sid, s1.sid]
+    b0 = building.ApartmentComplex()
+    b0.floor_count = 4
 
-    sensors = pd.DataFrame()
-    sensors = pd.concat([sensors, s0.get_df()], ignore_index=True)
-    sensors = pd.concat([sensors, s1.get_df()], ignore_index=True)
+    b1 = building.ApartmentComplex()
 
-    buildings = pd.DataFrame()
-    buildings = pd.concat([buildings, b0.get_df()], ignore_index=True)
+    manager = SensorManager()
 
-    print(buildings)
-    print(sensors)
+    manager.add_building(b0)
+    manager.add_building(b1)
+
+    manager.sensor_query(s1, 0, SensorQuery.AssignToFloors)
+    manager.sensor_query(s1, 1, SensorQuery.AssignToBuilding)
+
+    # print(manager.buildings[1].get_df())
+    print(manager.buildingDB)
+    print(manager.sensorDB)
 
 
 if __name__ == '__main__':
