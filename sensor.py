@@ -32,6 +32,12 @@ class Sensor:
         return pd.DataFrame([self.__dict__])
 
 
+class SensorVariation:
+
+    def __init__(self):
+        self.hanne = 1
+
+
 
 """***************** LAYER - 1 *****************"""
 
@@ -121,10 +127,10 @@ class Airplane(Airborn):
 
 #################################
 
-class WaterLeakage(SmartHomeDetector):
+class WaterLeakageDetector(SmartHomeDetector):
 
     def __init__(self, **kwargs):
-        super(WaterLeakage, self).__init__(**kwargs)
+        super(WaterLeakageDetector, self).__init__(**kwargs)
 
 
 ##################################
